@@ -1,39 +1,30 @@
-
-import numpy as np
+import numpy as np 
 import matplotlib.pylab as plt
 
-#pi = xp qi = yp ppoint = f1 qpoint = f2
 
-G = 9.83 #m/s²
+#constante 
 
-ETA = 0.00 #kg/s 
-
-import numpy as np
-import matplotlib.pylab as plt
-
-#pi = xp qi = yp ppoint = f1 qpoint = f2
-
-G = 9.83 #m/s²
-
-ETA = 0.00 #kg/s 
-
-MASSE = 1 #kg 
-
-V0 = 70. #m/s
-
-TETA = np.pi/4
-
-dt = 0.1
+M = 1 #kg
+V0 = 70. #m
+g = 9,81 #m/s^2
+dt = 0.1 #s
+n = 0.00 #Etat
+teta = np.pi/4
+y0 = 0.0
+x0 = 0.0
+V0x = V0*np.cos(teta)
+V0y = V0*np.sin(teta)
 
 
 def f1(xp, yp) :
-    return -ETA/MASSE*xp
+    return -n/M*xp 
+
 
 def f2(xp, yp) :
-    return -ETA/MASSE*yp - G
+    return -n/M*yp - g 
 
 
-print("Euler")
+
 
 def euler(dt, x, y, xp, yp):    
     pi1 = xp + f1(xp, yp)*dt
@@ -44,23 +35,29 @@ def euler(dt, x, y, xp, yp):
 
 
 
+tab_x_euler = np.array([0])
+tab_y_euler = np.array([0])
+tab_xp_euler = np.array([V0x])
+tab_yp_euler = np.array([V0y])
 
-tab_x_euler = np.array([0.0])
-tab_y_euler = np.array([0.0])
-tab_xp_euler = np.array([V0*np.cos(TETA)])
-tab_yp_euler = np.array([V0*np.sin(TETA)])
 
 x = tab_x_euler[0]
 y = tab_y_euler[0]
-xp = tab_xp_euler[0] 
+xp = tab_xp_euler[0]
 yp = tab_yp_euler[0]
-i = 0
+i =0
 
-while y >= 0 :     
-    xp, yp, x, y = euler(dt, x, y ,xp ,yp)
-    print( yp,  y)
+
+
+
+while y >= 0 :
+    xp, yp, x , y = euler(dt, x, y, xp, yp)
+    i += 1
+    if i > 1 :
+        y = y[1]
+    print(y, yp, i)
     tab_x_euler = np.append(tab_x_euler, x)
     tab_y_euler = np.append(tab_y_euler, y)
-    tab_xp_euler = np.append(tab_xp_euler, xp)
-    tab_yp_euler = np.append(tab_yp_euler, yp)
- 
+    tab_xp_euler = np.append(tab_xp_euler,xp)
+    tab_yp_euler = np.append(tab_yp_euler,yp)
+    
