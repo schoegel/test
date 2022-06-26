@@ -8,6 +8,15 @@ G = 9.83 #m/s²
 
 ETA = 0.00 #kg/s 
 
+import numpy as np
+import matplotlib.pylab as plt
+
+#pi = xp qi = yp ppoint = f1 qpoint = f2
+
+G = 9.83 #m/s²
+
+ETA = 0.00 #kg/s 
+
 MASSE = 1 #kg 
 
 V0 = 70. #m/s
