@@ -1,0 +1,19 @@
+G = 9,83 #m/s^2
+
+ETA = 0.00 #Etat
+
+MASSE = 1 #kg
+
+V0 = 70. #m
+
+TETA = np.pi/4
+
+dt = 0.1 #s
+
+x0 = 0
+
+y0 = 0
+
+V0x = V0*np.cos(TETA)
+
+V0y = V0*np.sin(TETA)
