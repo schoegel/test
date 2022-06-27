@@ -1,14 +1,14 @@
-G = 9,83 #m/s^2
+G = 9.83 #m/s²
 
-ETA = 0.00 #Etat
+ETA = 0.00 #kg/s 
 
-MASSE = 1 #kg
+MASSE = 1 #kg 
 
-V0 = 70. #m
+V0 = 70. #m/s
 
 TETA = np.pi/4
 
-dt = 0.1 #s
+dt = 0.1
 
 x0 = 0
 
